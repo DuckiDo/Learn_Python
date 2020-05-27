@@ -1,16 +1,17 @@
+#! python3
 import re
 import pyperclip
-# Find phone number and email
 
+# Find phone number and email
 phoneNumberRegex = re.compile(r'''(
-                            (\+[7]|\s[8])?         #Russian cod mobile operator
-                            (\s|-|\.)?           #Разделитель
-                            (\d{3})                #Первые 3 цифры
-                            (\s|-|\.)?           #Разделитель
+                            (\+[7]|\s[8])?       #Russian cod mobile operator
+                            (\s|-|\.)?           #Delimiter
+                            (\d{3})              #First 3 digits
+                            (\s|-|\.)?           #Delimiter
                             (\d{3})
-                            (\s|-|\.)?           #Разделитель
+                            (\s|-|\.)?           #Delimiter
                             (\d{2})
-                            (\s|-|\.)?           #Разделитель
+                            (\s|-|\.)?           #Delimiter
                             (\d{2})
                                     )''', re.VERBOSE)
 
@@ -39,4 +40,3 @@ if len(mathes) > 0:
     print('\n'.join(mathes))
 else:
     print('No phone numbers or email addresses found.')
-
